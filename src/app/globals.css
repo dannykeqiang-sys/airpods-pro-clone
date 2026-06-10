@@ -1,0 +1,307 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Apple AirPods Pro 全局样式 ── */
+
+@layer base {
+  :root {
+    /* 核心色 */
+    --color-black: #000000;
+    --color-text-primary: #1D1D1F;
+    --color-white: #FFFFFF;
+    --color-bg-light: #FAFAFC;
+    --color-bg-secondary: #F5F5F7;
+    --color-bg-tertiary: #E1E1E3;
+    --color-text-secondary: #6E6E73;
+    --color-text-tertiary: #86868B;
+    --color-text-dark-secondary: #5B5B61;
+    --color-text-dark: #424245;
+    --color-text-darker: #333336;
+
+    /* 功能色 */
+    --color-link: #0071E3;
+    --color-link-hover: #0066CC;
+    --color-green: #00C866;
+    --color-purple: #8668FF;
+    --color-orange: #ED6300;
+    --color-teal: #00A1B3;
+
+    /* 边框色 */
+    --color-border-light: rgba(232, 232, 237, 0.4);
+    --color-border-medium: rgba(232, 232, 237, 0.72);
+    --color-border-dark: rgba(210, 210, 215, 0.64);
+    --color-divider: #E8E8ED;
+
+    /* 遮罩色 */
+    --color-overlay-light: rgba(0, 0, 0, 0.16);
+    --color-overlay-medium: rgba(0, 0, 0, 0.56);
+    --color-overlay-heavy: rgba(0, 0, 0, 0.72);
+    --color-overlay-dark: rgba(0, 0, 0, 0.8);
+    --color-overlay-max: rgba(0, 0, 0, 0.88);
+    --color-white-overlay-light: rgba(255, 255, 255, 0.16);
+    --color-white-overlay-medium: rgba(255, 255, 255, 0.32);
+    --color-white-overlay-heavy: rgba(255, 255, 255, 0.67);
+    --color-white-overlay-max: rgba(255, 255, 255, 0.8);
+
+    /* 渐变 */
+    --gradient-white-to-secondary: linear-gradient(rgb(255, 255, 255), rgb(245, 245, 247));
+    --gradient-secondary-to-dark: linear-gradient(rgb(245, 245, 247) 85%, rgb(0, 0, 0) 0px);
+    --gradient-secondary-to-tertiary: linear-gradient(rgb(245, 245, 247), rgb(225, 225, 227));
+    --gradient-overlay-dark: linear-gradient(rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.56));
+
+    /* 字体 */
+    --font-primary: "SF Pro SC", "SF Pro Text", "PingFang SC", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    --font-display: "SF Pro Display", "SF Pro SC", "PingFang SC", sans-serif;
+    --font-icons: "SF Pro Icons";
+
+    /* 动画 */
+    --duration-fast: 200ms;
+    --duration-normal: 400ms;
+    --duration-slow: 600ms;
+    --duration-slower: 800ms;
+    --ease-default: cubic-bezier(0.25, 0.1, 0.25, 1);
+    --ease-in: cubic-bezier(0.42, 0, 1, 1);
+    --ease-out: cubic-bezier(0, 0, 0.58, 1);
+    --ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
+    --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  /* 全局基础样式 */
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-primary);
+    color: var(--color-text-primary);
+    background-color: var(--color-white);
+    line-height: 1.47059;
+    font-weight: 400;
+    letter-spacing: -0.022em;
+    overflow-x: hidden;
+  }
+
+  /* 链接样式 */
+  a {
+    color: var(--color-link);
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-default);
+  }
+
+  a:hover {
+    color: var(--color-link-hover);
+  }
+
+  /* 图片响应式 */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Section 基础间距 */
+  .section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  @media (min-width: 768px) {
+    .section {
+      padding-top: 120px;
+      padding-bottom: 120px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section {
+      padding-top: 160px;
+      padding-bottom: 160px;
+    }
+  }
+
+  /* Section Header 组件 */
+  .section-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .section-header-eyebrow {
+    font-size: 12px;
+    line-height: 1.33337;
+    letter-spacing: -0.01em;
+    color: var(--color-text-secondary);
+    margin-bottom: 4px;
+  }
+
+  .section-header-headline {
+    font-family: var(--font-display);
+    font-size: 48px;
+    line-height: 1.08349;
+    letter-spacing: -0.003em;
+    color: var(--color-text-primary);
+    margin-bottom: 16px;
+  }
+
+  @media (min-width: 768px) {
+    .section-header-headline {
+      font-size: 64px;
+      line-height: 1.0625;
+    }
+  }
+
+  .section-header-copy {
+    font-size: 21px;
+    line-height: 1.381;
+    font-weight: 400;
+    letter-spacing: .011em;
+    color: var(--color-text-secondary);
+  }
+
+  @media (min-width: 768px) {
+    .section-header-copy {
+      font-size: 24px;
+      line-height: 1.29167;
+    }
+  }
+}
+
+@layer components {
+  /* CTA 链接样式 */
+  .cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 21px;
+    font-weight: 400;
+    letter-spacing: .011em;
+    color: var(--color-link);
+    transition: color var(--duration-fast) var(--ease-default);
+  }
+
+  .cta-link:hover {
+    color: var(--color-link-hover);
+  }
+
+  .cta-link .cta-arrow {
+    display: inline-block;
+    transition: transform var(--duration-fast) var(--ease-default);
+  }
+
+  .cta-link:hover .cta-arrow {
+    transform: translateX(4px);
+  }
+
+  /* 购买按钮 */
+  .buy-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: -0.022em;
+    color: var(--color-white);
+    background-color: var(--color-link);
+    border-radius: 980px;
+    transition: background-color var(--duration-fast) var(--ease-default);
+  }
+
+  .buy-link:hover {
+    background-color: var(--color-link-hover);
+  }
+
+  /* 滚动触发动画基础 */
+  .scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity var(--duration-slow) var(--ease-default),
+                transform var(--duration-slow) var(--ease-default);
+  }
+
+  .scroll-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* 视频播放器遮罩 */
+  .video-controls-overlay {
+    background: var(--gradient-overlay-dark);
+    transition: opacity var(--duration-fast) var(--ease-default);
+  }
+
+  /* 噪声控制涟漪动画 */
+  .ripple-animation {
+    animation: ripple-expand 2s ease-out infinite;
+  }
+
+  @keyframes ripple-expand {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+  }
+
+  /* 心率脉冲动画 */
+  .pulse-animation {
+    animation: pulse-glow 1s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+}
+
+@layer utilities {
+  /* Apple 特殊文字样式 */
+  .typography-hero-headline {
+    font-family: var(--font-display);
+    font-size: 56px;
+    line-height: 1.07143;
+    letter-spacing: -0.005em;
+  }
+
+  @media (min-width: 768px) {
+    .typography-hero-headline {
+      font-size: 80px;
+      line-height: 1.05;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .typography-hero-headline {
+      font-size: 96px;
+      line-height: 1.04167;
+    }
+  }
+
+  .typography-section-header-headline {
+    font-family: var(--font-display);
+    font-size: 48px;
+    line-height: 1.08349;
+    letter-spacing: -0.003em;
+  }
+
+  @media (min-width: 768px) {
+    .typography-section-header-headline {
+      font-size: 64px;
+      line-height: 1.0625;
+    }
+  }
+
+  .typography-section-header-link {
+    font-size: 21px;
+    line-height: 1.381;
+    letter-spacing: .011em;
+  }
+}
